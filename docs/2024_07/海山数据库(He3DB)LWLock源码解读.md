@@ -13,8 +13,7 @@ He3DB for PostgreSQL中存在多个会话试图同时访问同一数据的情况
 死锁处理模块：包括死锁检测功能和死锁处理功能。
 
 
-![图1 锁管理模块介绍 ](https://i-blog.csdnimg.cn/direct/6f50b58b43ea4c7995b0abc54eba672d.png#pic_center)
-<center>图1 锁管理模块介绍</center>
+![图1 锁管理模块介绍 ](https://github.com/Ericyuanhui/He3DB_Technology/blob/main/docs/images/%E9%94%81%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97%E5%88%92%E5%88%86.png)
 
 #  数据结构
 
@@ -159,8 +158,7 @@ LWLock还提供了另外一种获取LWLock的方式---使用LWLockConditionalAcq
  - 如果需要唤醒进程，遍历等待队列;如果遇到要求读锁的进程，从队列中删除，但保留一个指向它的指针。重复操作直到遇到要求写锁的进程。
  - 释放该LWLock，把从队列中删除的进程唤醒。
 另外提供能释放当前后端持有的所有LWLock锁的功能，该功能在函数LWLockReleaseAll中定义，主要在系统出现错误之后使用。
-![](https://i-blog.csdnimg.cn/direct/03be6b1ca7cb4e69937a5f4fa103f877.png)
-<center>图2 LWLock模块使用流程</center>
+![](https://github.com/Ericyuanhui/He3DB_Technology/blob/main/docs/images/LWLock%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
 
 ## 主要接口
 | 对外接口函数  | 接口说明  |
@@ -173,7 +171,7 @@ LWLock还提供了另外一种获取LWLock的方式---使用LWLockConditionalAcq
 | void LWLockReleaseAll(void) |  释放全部锁 |
 
 ## 源码流程图
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/fc3fdd33a5114f5a8bac491fd4fce17a.png)
+![在这里插入图片描述](https://github.com/Ericyuanhui/He3DB_Technology/blob/main/docs/images/He3DB%E9%94%81%E5%AE%9E%E7%8E%B0%E8%AE%BE%E8%AE%A1LWlock.png)
 
 # 作者介绍
-徐元慧，移动云数据库高级系统架构师，负责云原生数据库He3DB的架构设计与研发。
+徐元慧，移动云数据库系统架构师，负责云原生数据库He3DB的架构设计与研发。
